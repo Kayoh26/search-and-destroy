@@ -2,7 +2,19 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
-
+  const listCopy = linkedlist;
+  let currNode = listCopy.tail;
+  //console.log('currentNode', currNode.value, currNode.previous.next.value)
+  if(!currNode.previous) {
+    return false;
+  }
+  else if(currNode.value !== currNode.previous.next.value) {
+    return true;
+  }
+  else {
+    listCopy.removeTail();
+    return isLoop(listCopy)
+  }
 };
 
 
